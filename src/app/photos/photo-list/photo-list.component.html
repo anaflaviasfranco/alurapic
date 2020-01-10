@@ -10,12 +10,18 @@
     </form>
 </div>
 
-<ap-photos [photos]="photos"></ap-photos>
+<ap-photos [photos]="photos | filterByDescription: filter"></ap-photos>
 
 
 <!--
-    BINDINGS sao unidirecionais, porem cada um com sua direçao especifica
+    BINDINGS: sao unidirecionais, porem cada um com sua direçao especifica
 
-    (eventbinding) o evento é disparado da view do template para o componente
-    [databinding]  dados vem do componente para o template
+    (eventbinding)="" o evento é disparado da view do template para o componente
+    [databinding]=""  dados vem do componente para o template
+
+    pipes | : no caso do ex abaixo, o pipe (|) é utilizado parra deixar as letras maiusculas (uppercase)
+    
+    {{nome | uppercase}}
+
+    
 -->
