@@ -10,7 +10,8 @@ import { Photo } from '../photo/photo';
 })
 export class PhotoListComponent implements OnInit {
 
-  photos: Photo[] = [];  
+  photos: Photo[] = []; 
+  filter: string = ''; 
 
   // constructor sera destinado a construcao de dependencia
   constructor(
