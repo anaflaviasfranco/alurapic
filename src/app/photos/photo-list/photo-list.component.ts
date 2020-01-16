@@ -14,17 +14,13 @@ export class PhotoListComponent implements OnInit {
   filter: string = ''; 
 
   // constructor sera destinado a construcao de dependencia
-  constructor(
-    private photoService: PhotoService,
-    private activatedRoute: ActivatedRoute
-    ) { }
+  constructor(private activatedRoute: ActivatedRoute) { }
 
  // ngoninit ciclo de vida de um componente
   ngOnInit(): void {
 
-    const userName = this.activatedRoute.snapshot.params.userName;
+    this.photos = this.activatedRoute.snapshot.data['photos'];
 
-    this.photoService.listFromUser(userName).subscribe(photos => this.photos = photos);
   }
 
 }
