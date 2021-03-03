@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app.routing.module';
 import { PhotosModule } from './photos/photos.module';
 import { ErrorsModule } from './errors/errors.module';
 import { CoreModule } from './core/core.module';
+import { PhotoService } from './photos/photo/photo.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { CoreModule } from './core/core.module';
     CoreModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    PhotoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import * as jtw_decode from 'jwt-decode';
 
 const KEY = 'authToken';
 
@@ -23,5 +24,13 @@ export class TokenService{
     removeToken() {
         window.localStorage.removeItem(KEY);
     }
-
+    
+    hasExpired() {
+        if(this.hasToken()) {
+            const token = jtw_decode(this.getToken());
+            const currentTime = Date.now() / 1000;
+            return token.exp < currentTime;
+        }
+       return false;
+    }
 }
