@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RequestInterceptorService } from './auth/request.interceptor';
+import { RequestInterceptor } from './auth/request.interceptor';
 
 @NgModule({
     declarations: [
@@ -19,11 +19,13 @@ import { RequestInterceptorService } from './auth/request.interceptor';
         CommonModule,
         RouterModule,
     ],
-    providers:[{
-        provide: HTTP_INTERCEPTORS,
-        useClass: RequestInterceptorService,
-        multi: true
-      }]
+    providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: RequestInterceptor,
+            multi: true
+        }
+    ]
 })
 export class CoreModule {
 
